@@ -10,9 +10,12 @@ class Solution{
     {
         // Your code goes here
         for(size_t i=0; i < n/2; ++i){
-            int32_t x1 = arr[i * 2 + 1];
-            int32_t x2 = arr[i * 2 + 2];
-            if(arr[i] < x1 || arr[i] < x2){
+            size_t left = 2 * i + 1;
+            size_t right = 2 * i + 2;
+            if(
+                (left < n && arr[left] > arr[i]) 
+                || (right < n && arr[right] > arr[i])
+            ) {
                 return false;
             }
         }
