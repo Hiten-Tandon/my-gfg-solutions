@@ -25,16 +25,16 @@ class Distinct_Occurrences
 
 /*You are required to complete this method*/
 
-class Solution
+final class Solution
 {
-    
     private static final int MOD = 1_000_000_007;
-    private static int rec(
-        String s, 
-        String t, 
-        int sPos, 
-        int tPos, 
-        int[][] dp
+    
+    private static final int rec(
+        final String s, 
+        final String t, 
+        final int sPos, 
+        final int tPos, 
+        final int[][] dp
     ) {
         if(tPos == t.length()) {
             return 1;
@@ -54,12 +54,14 @@ class Solution
         
         return dp[sPos][tPos];
     }
-    public static int subsequenceCount(String s, String t) {
-        int[][] dp = new int[s.length()][t.length()];
+    
+    public static final int subsequenceCount(final String s, final String t) {
+        final int[][] dp = new int[s.length()][t.length()];
         
         for(final int[] row: dp) {
             Arrays.fill(row, -1);
         }
+        
         return rec(s, t, 0, 0, dp);
     }
 }
